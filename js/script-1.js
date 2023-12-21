@@ -5,10 +5,11 @@ console.log('JS OK DADI');
 const player1Element = document.getElementById('player1');
 const player2Element = document.getElementById('player2');
 const playerVincElement = document.getElementById('playerVinc');
-
+const buttonPlayElement = document.getElementById('button-play')
 // Verifco in Console
 console.log(player1Element, player2Element);
 
+buttonPlayElement.addEventListener('click', function(){
 // Creo le variabili Min e Max
 let min = 1
 let max = 6
@@ -38,3 +39,5 @@ if (randomPlayer1 > randomPlayer2) {
 
 // Metto in pagina il risultato
 playerVincElement.innerText = vincent;
+})
+
