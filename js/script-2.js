@@ -1,46 +1,71 @@
 // Check 
 console.log('JS OK LOGIN');
 
-// Prendo Id in pagina
+/* RECUPERO ELEMENTI ID  */
 const buttonElement = document.getElementById('button-user');
 const inputElement = document.getElementById('email');
+const answerElement = document.getElementById('answer');
+
+
+/* CREO UN ARRAY CON AL SUO INTERNO DELL'EMAIL */
 const email = ['marcofonti@gmail.com', 'matteoconti@gmail.com', 'jenniferfonti@gmail.com'];
-const answerElement = document.getElementById('answer')
-// Valore di email in Console
+
+
+/* CONTROLLO RISPOSTA */
 console.table(email);
 
 
 
-// Al momento del click 
+/* AL CLICK SUL BOTTONO INVIA CREO UN EVENTO */
 buttonElement.addEventListener ('click', function(){
 
-    // Mi salvi l'email
+
+    /* CREO UNA VARIBILE IN CUI MI SALVO L'AMAIL DEL UTENTE */
     const userEmail = inputElement.value;
 
-    // Presumo subito che non sia nella lista
+
+    /* CREO UNA VARIBILE PER MANIPOLARLA NELLA CONDIZIONE */
     let userIsAllowed = false;
 
-    // Creo il conteggio 
-    for (let i = 0; i< email.length && !userIsAllowed; i++){
 
-        // Stampo email che ho gia e quella dell'utente in console
+    /* CICLO FOR FINCHE' LA I E' MINORE DELLA LUNGHEZZA DELL'ARRAY E CHE SE LA VARIBILE USERISALLOWED E' FALSA CONTINUA IL CICLO */
+    for (let i = 0; i < email.length && !userIsAllowed; i++){
+
+
+        /* CONTROLLO RISPOSTA DEL VALORE E DELL'INDECE DEL MIO ARRAY CREATO */
         console.log (email[i]);
+
+
+        /* CONTROLLO EMAIL INSERITA DALL'UTENTE */
         console.log (userEmail);
 
-        // Se l'email dellutentem è identica a quella della lista allora stampo in console e diventa true
+
+        /* SE EMAIL DELL'UTENTE E IDENTICA A UNA DELLE MIE EMAIL DELL'ARRAY */
         if (email[i] === userEmail) {
+
+            /* RISPOSTA */
             console.log('trovata')
+
+            /* LA VARIBILE USERISALLOWED E' TRUE QUINDI FERMO IL CICLO */
             userIsAllowed = true;
         } 
     }
 
-    // Stampo se l'utente è in lista o no (false o true)
+
+    /* CONTROLLO IN CONSOLE SE L'UTENTE E' IN LISTA O NO */
     console.log ('utente autorizzato: ', userIsAllowed)
 
-    // Stampo in pagina
+
+    /* SE LA MIA VARIBILE CHE FERMA IL CICLO E' INDENTICA A TRUE */
     if (userIsAllowed === true) {
+
+        /* STAMPO IN PAGINA */
         answerElement.innerText = 'Benvetuto'
+
+        /* ALTRIMENTI */
     } else {
+
+        /* STAMPO IN PAGINA */
         answerElement.innerText = 'Non sei in lista'
     }
 
